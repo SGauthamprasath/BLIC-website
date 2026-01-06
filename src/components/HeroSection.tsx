@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Linkedin, Twitter } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -26,11 +26,11 @@ const HeroSection = () => {
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mb-8 mx-auto md:mx-0"></div>
             <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-              A Retired Air Force veteran and the current Development Officer for LIC of India in Sulur, Coimbatore. Combining the integrity of a veteran with the analytical depth of an MBA and LLB graduate, he specializes in building and leading high-performing teams. With an extensive academic portfolio and an Associate designation from III, Boopathi is recognized for his resilience, professional ethics, and commitment to financial empowerment.
+              A Retired Air Force veteran and current Development Officer for LIC of India in Sulur, Coimbatore, combines the integrity of his military background with advanced analytical skills earned through MBA and LLB degrees. Specializing in building and leading high-performing teams, he is recognized for his professional ethics, resilience, and commitment to financial empowerment. He also holds an Associate designation from the III.
             </p>
             <div className="flex gap-4 justify-center md:justify-start">
               <a
-                href="mailto:sarah.mitchell@example.com"
+                href="mailto:contact.kboopathi@gmail.com"
                 className="p-3 bg-white hover:bg-blue-50 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
                 aria-label="Email"
               >
@@ -45,15 +45,7 @@ const HeroSection = () => {
               >
                 <Linkedin className="w-6 h-6 text-gray-700" />
               </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white hover:bg-blue-50 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <Github className="w-6 h-6 text-gray-700" />
-              </a>
+              
               <a
                 href="https://twitter.com"
                 target="_blank"

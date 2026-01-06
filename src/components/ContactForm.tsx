@@ -1,5 +1,7 @@
+// src/components/ContactForm.tsx
 import { useState, type FormEvent } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { submitToGoogleSheets } from '../lib/formConfig';
 
 interface FormData {
   name: string;
@@ -111,27 +113,27 @@ const ContactForm = () => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const subject = `Enquiry from ${formData.name}`;
-      const body = `Name: ${formData.name}%0D%0APhone: ${formData.phone}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      const mailtoLink = `mailto:sarah.mitchell@example.com?subject=${subject}&body=${body}`;
+      // Submit to Google Sheets
+      await submitToGoogleSheets(formData);
 
-      window.location.href = mailtoLink;
+      // Show success message
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you for your message! I\'ll get back to you soon. You should also receive an email confirmation.'
+      });
 
-      setTimeout(() => {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Thank you for your enquiry! Your email client should open shortly.'
-        });
-        setFormData({ name: '', phone: '', email: '', message: '' });
-        setErrors({});
-        setTouched({});
-        setIsSubmitting(false);
-      }, 1000);
+      // Reset form
+      setFormData({ name: '', phone: '', email: '', message: '' });
+      setErrors({});
+      setTouched({});
+
     } catch (error) {
+      console.error('Submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'An error occurred. Please try again.'
+        message: 'Oops! Something went wrong. Please try again or contact me directly via email.'
       });
+    } finally {
       setIsSubmitting(false);
     }
   };
