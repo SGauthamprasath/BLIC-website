@@ -30,7 +30,7 @@ const HeroSection = () => {
             </p>
             <div className="flex gap-4 justify-center md:justify-start">
               <a
-                href="mailto:contact.kboopathi@gmail.com"
+                href="mailto:kboopathi1907@gmail.com"
                 className="p-3 bg-white hover:bg-blue-50 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
                 aria-label="Email"
               >

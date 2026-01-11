@@ -5,6 +5,7 @@ import EventsCarousel from './components/EventsCarousel';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
+import PostersCarousel from './components/PostersCarousel';
 
 function App() {
   const [isAdminRoute, setIsAdminRoute] = useState(false);
@@ -34,6 +35,7 @@ function App() {
     <div className="min-h-screen">
       <HeroSection />
       <EventsCarousel />
+      <PostersCarousel />
       <ContactForm />
       <Footer />
     </div>
