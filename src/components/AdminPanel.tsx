@@ -39,13 +39,13 @@ const AdminPanel = () => {
     date: '',
     description: '',
   });
-  const [selectedEventFile, setSelectedEventFile] = useState<File | null>(null);
+  const [_selectedEventFile, setSelectedEventFile] = useState<File | null>(null);
   const [compressedEventFile, setCompressedEventFile] = useState<File | null>(null);
   const [eventPreviewUrl, setEventPreviewUrl] = useState<string | null>(null);
   const [eventFileSizes, setEventFileSizes] = useState<{ original: number; compressed: number } | null>(null);
 
   // Poster form state
-  const [selectedPosterFile, setSelectedPosterFile] = useState<File | null>(null);
+  const [_selectedPosterFile, setSelectedPosterFile] = useState<File | null>(null);
   const [compressedPosterFile, setCompressedPosterFile] = useState<File | null>(null);
   const [posterPreviewUrl, setPosterPreviewUrl] = useState<string | null>(null);
   const [posterFileSizes, setPosterFileSizes] = useState<{ original: number; compressed: number } | null>(null);
@@ -158,8 +158,8 @@ const AdminPanel = () => {
         'output.mp4'
       ]);
 
-      const data = await ffmpeg.readFile('output.mp4');
-      const compressed = new File([data], file.name, { type: 'video/mp4' });
+      const data = await ffmpeg.readFile('output.mp4') as Uint8Array;
+      const compressed = new File([new Uint8Array(data)], file.name, { type: 'video/mp4' });
 
       await ffmpeg.deleteFile('input.mp4');
       await ffmpeg.deleteFile('output.mp4');
